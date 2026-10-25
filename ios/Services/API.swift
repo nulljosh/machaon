@@ -159,15 +159,17 @@ final class API {
     private static func keychain(set value: String?) { UserDefaults.standard.set(value, forKey: "debugRefreshToken") }
     private static func keychain() -> String? { UserDefaults.standard.string(forKey: "debugRefreshToken") }
     #else
+    /// The data protection keychain, the one iOS always uses. On the Mac the default is the old login
+    /// keychain, which asks for the login password; App Review could not get past that prompt (2.1(a), 2026-10-15).
+    private static let keychainQuery: [String: Any] = [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: service,
+                                              kSecUseDataProtectionKeychain as String: true]
     private static func keychain(set value: String?) {
-        let q: [String: Any] = [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: service]
-        SecItemDelete(q as CFDictionary)
+        SecItemDelete(keychainQuery as CFDictionary)
         guard let value else { return }
-        SecItemAdd(q.merging([kSecValueData as String: Data(value.utf8)]) { $1 } as CFDictionary, nil)
+        SecItemAdd(keychainQuery.merging([kSecValueData as String: Data(value.utf8)]) { $1 } as CFDictionary, nil)
     }
     private static func keychain() -> String? {
-        let q: [String: Any] = [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: service,
-                                kSecReturnData as String: true, kSecMatchLimit as String: kSecMatchLimitOne]
+        let q = keychainQuery.merging([kSecReturnData as String: true, kSecMatchLimit as String: kSecMatchLimitOne]) { $1 }
         var out: AnyObject?
         guard SecItemCopyMatching(q as CFDictionary, &out) == errSecSuccess, let d = out as? Data else { return nil }
         return String(data: d, encoding: .utf8)

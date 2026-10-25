@@ -1,16 +1,12 @@
 name: HealstackMac
-packages:
-  Supabase:
-    url: https://github.com/supabase/supabase-swift.git
-    from: "2.5.1"
 options:
   bundleIdPrefix: com.heyitsmejosh
   deploymentTarget:
     macOS: '14.0'
 settings:
   SWIFT_VERSION: '6.0'
-  MARKETING_VERSION: '2.0.0'
-  CURRENT_PROJECT_VERSION: '1'
+  MARKETING_VERSION: '2.3.5'
+  CURRENT_PROJECT_VERSION: '202610251236'
   DEVELOPMENT_TEAM: QMM486NPYC
   CODE_SIGN_STYLE: Automatic
 targets:
@@ -37,14 +33,13 @@ targets:
       - path: ../ios/Services/DataStore.swift
       - path: ../ios/Services/InsightEngine.swift
       - path: ../ios/Services/AuthService.swift
+      - path: ../ios/Services/API.swift
       - path: ../ios/Assets.xcassets
-    dependencies:
-      - package: Supabase
-        product: Supabase
     info:
       path: Info.plist
       properties:
-        CFBundleDisplayName: Healstack
+        CFBundleDisplayName: Machaon
+        LSApplicationCategoryType: public.app-category.healthcare-fitness
         CFBundleURLTypes:
           - CFBundleURLName: com.heyitsmejosh.dose
             CFBundleURLSchemes:
@@ -60,11 +55,13 @@ targets:
     entitlements:
       path: HealstackMac.entitlements
       properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
         com.apple.developer.applesignin:
           - Default
     settings:
       CODE_SIGN_ENTITLEMENTS: HealstackMac.entitlements
-      PRODUCT_NAME: Healstack
+      PRODUCT_NAME: Machaon
       ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.dose
       SUPABASE_URL: https://tjsxsqlxjmanwvmywwvw.supabase.co

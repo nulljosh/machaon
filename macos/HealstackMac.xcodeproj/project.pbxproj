@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		163C7267711F5AF9BCA8EC21 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 65F69D6D5A5D766469BBE46E /* Supabase */; };
 		1D6E445A3EC0E25BDAE0B03B /* ReflexologyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EA544E564F9BC9C78A43BC /* ReflexologyData.swift */; };
 		23C82A20932DBAAA9DB89E3D /* OnboardingSlides.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963C62021C31B245B9B6EA08 /* OnboardingSlides.swift */; };
 		2A8A8036E49BAB222F7CB449 /* MacSessionHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77E049B81C19DA4F1FE959B /* MacSessionHistoryView.swift */; };
@@ -19,6 +18,7 @@
 		4F48385CC41626B62530D330 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658332455BF4468793E8E638 /* SidebarView.swift */; };
 		5BDB2037B67005A7F9642B23 /* MacReflexologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12664FDBF1B0B853948B55D7 /* MacReflexologyView.swift */; };
 		689266BE2650EDAA93348D3E /* MacLabResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BFAC39E481BB7B6D3E7249 /* MacLabResultsView.swift */; };
+		69B1216B30681E7EF1633696 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8E5F50AD0E9FDCE4FEB869 /* API.swift */; };
 		72A8FD40CAE4518907343CA0 /* AbdomenData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325F038875E9F50100570F10 /* AbdomenData.swift */; };
 		767425A5F351576DB418D116 /* MacMeridianListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E670EC99285A09DF100E7DC9 /* MacMeridianListView.swift */; };
 		7C24B382B2E79524EB01E213 /* MacAbdomenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72535493F0D0662D755B5AC /* MacAbdomenView.swift */; };
@@ -62,6 +62,7 @@
 		529D4EBDA9DB5D0CFE8E3620 /* AcupunctureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcupunctureData.swift; sourceTree = "<group>"; };
 		5913A272221D6000446F4512 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		658332455BF4468793E8E638 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		6F8E5F50AD0E9FDCE4FEB869 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		7839514FF89F16800F36C523 /* HealstackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealstackApp.swift; sourceTree = "<group>"; };
 		8339AA4634B1EE775A24B13B /* BodyworkSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyworkSessionStore.swift; sourceTree = "<group>"; };
 		86C45C3FD56F2975F384C1E3 /* BodyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMapView.swift; sourceTree = "<group>"; };
@@ -83,17 +84,6 @@
 		E97837BAE2FEFE28A049A07B /* InsightEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightEngine.swift; sourceTree = "<group>"; };
 		F77E049B81C19DA4F1FE959B /* MacSessionHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacSessionHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		D3E93CC86E40BF2A933AA148 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				163C7267711F5AF9BCA8EC21 /* Supabase in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		031BD11A632B49ACA362D456 /* ios */ = {
@@ -131,6 +121,7 @@
 		849F728B73ECD33EB822D405 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6F8E5F50AD0E9FDCE4FEB869 /* API.swift */,
 				C3B462277BFFEFFC04DDAAD2 /* AuthService.swift */,
 				8D6AFDD3692AEE45F5B5E2E3 /* DataStore.swift */,
 				E97837BAE2FEFE28A049A07B /* InsightEngine.swift */,
@@ -219,7 +210,6 @@
 			buildPhases = (
 				F1A8FE3CD57DD5363817A496 /* Sources */,
 				91D3232DC91C201325347421 /* Resources */,
-				D3E93CC86E40BF2A933AA148 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +217,6 @@
 			);
 			name = Healstack;
 			packageProductDependencies = (
-				65F69D6D5A5D766469BBE46E /* Supabase */,
 			);
 			productName = Healstack;
 			productReference = 3F5F39D7F3A6909F3A9C7B2D /* Healstack.app */;
@@ -257,9 +246,6 @@
 			);
 			mainGroup = F5C0E07678C19212842C5E07;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				17ABE9E9B7F10A206CF920EC /* XCRemoteSwiftPackageReference "supabase-swift" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9FE32462372C14E1214D0D35 /* Products */;
 			projectDirPath = "";
@@ -287,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69B1216B30681E7EF1633696 /* API.swift in Sources */,
 				72A8FD40CAE4518907343CA0 /* AbdomenData.swift in Sources */,
 				C5C6416F36C7951A6124B889 /* AcupunctureData.swift in Sources */,
 				390847C68B303264D3EBB3D7 /* AuthService.swift in Sources */,
@@ -360,7 +347,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 202610251236;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = QMM486NPYC;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -374,7 +361,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.3.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,7 +384,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.dose;
-				PRODUCT_NAME = Healstack;
+				PRODUCT_NAME = Machaon;
 				SDKROOT = macosx;
 				SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqc3hzcWx4am1hbnd2bXl3d3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTc0MDEsImV4cCI6MjA4NjA3MzQwMX0.LphLfho3wdQC20MhtcnBpzQUNuBoTOobrugQbNGxc68;
 				SUPABASE_URL = "https://tjsxsqlxjmanwvmywwvw.supabase.co";
@@ -416,7 +403,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.heyitsmejosh.dose;
-				PRODUCT_NAME = Healstack;
+				PRODUCT_NAME = Machaon;
 				SDKROOT = macosx;
 				SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqc3hzcWx4am1hbnd2bXl3d3Z3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0OTc0MDEsImV4cCI6MjA4NjA3MzQwMX0.LphLfho3wdQC20MhtcnBpzQUNuBoTOobrugQbNGxc68;
 				SUPABASE_URL = "https://tjsxsqlxjmanwvmywwvw.supabase.co";
@@ -458,7 +445,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 202610251236;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = QMM486NPYC;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -478,7 +465,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.3.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -512,25 +499,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		17ABE9E9B7F10A206CF920EC /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase/supabase-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		65F69D6D5A5D766469BBE46E /* Supabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 17ABE9E9B7F10A206CF920EC /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Supabase;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 796FC5278B55401801225A02 /* Project object */;
 }
