@@ -6,7 +6,7 @@ const CSS = `
 #install-anywhere .xp-wrap{max-width:680px;margin:0 auto;padding:0 1.5rem;text-align:center;}
 #install-anywhere h2{font-size:clamp(1.6rem,3.4vw,2.4rem);margin:0 0 .6rem;letter-spacing:-.02em;}
 #install-anywhere .xp-lead{max-width:46ch;margin:0 auto 2rem;opacity:.7;line-height:1.55;}
-#install-anywhere .xp-main{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.5rem;border-radius:4px;background:var(--accent,currentColor);color:#fff;font-weight:600;text-decoration:none;}
+#install-anywhere .xp-main{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 1.5rem;border-radius:4px;background:var(--btn,var(--accent,currentColor));color:#fff;font-weight:600;text-decoration:none;}
 #install-anywhere .xp-how{margin:.75rem auto 0;max-width:46ch;font-size:.9rem;line-height:1.5;opacity:.7;}
 #install-anywhere details{margin-top:2rem;text-align:left;}
 #install-anywhere summary{cursor:pointer;width:max-content;margin:0 auto;padding:.5rem 1rem;font-size:.9rem;font-weight:500;color:var(--accent,currentColor);list-style:none;}
