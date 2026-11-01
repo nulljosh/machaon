@@ -190,11 +190,6 @@ reported as type `inAppPurchaseVersion`, yet `asc iap list --app 6785764864` ret
 IAPs. See sparkjar/roadmap.md "ASC state verified 2026-08-10" for the full decoding, don't
 chase a nonexistent IAP.
 
-- [x] (11-01: nothing open, iOS 2.4.0 and Mac 2.3.5 are both on sale) **Read the rejection text in Resolution Center.** Not exposed by the public API.
-  Needs `asc web review show --app 6785764864`, which needs a web session, `asc web auth
-  status` is `authenticated:false` and `asc-login` requires an interactive 2FA code from
-  Joshua. The real reason is unknown until then. Plausibly this is the medical-device
-  declaration item below finally biting, but that is a guess, not evidence.
 
 ### Original status line (kept for history)
 v1.0 is WAITING_FOR_REVIEW (submitted 2026-07-21). Infrastructure migrated from Vercel to Cloudflare Pages 2026-08-06 (wrangler config cleared of Vercel-only settings, landing page restyled with Lexly design system). The "ship VERSION:2.3.4"/"2.3.3 resume" items below were from before that submission and are stale, superseded, not re-run.
@@ -208,10 +203,6 @@ v1.0 is WAITING_FOR_REVIEW (submitted 2026-07-21). Infrastructure migrated from 
   this can't be automated.
 
 ## From App Store.pdf (imported 2026-07-28)
-- [x] (11-01: shipped, Mac 2.3.5 is on sale) Ship a macOS version of Intake. Note 2026-08-10: `healstack/macos/` **does exist**, so
-  this is a build+submit job rather than a from-scratch port. There is currently no `MAC_OS`
-  version row on app `6785764864` (only IOS), the row gets created by submitting a macOS
-  build, not by a dashboard toggle.
 
 ## Rejection reason pulled 2026-08-10 (Resolution Center)
 - **CLOSED 2026-08-25** (superseded, that rejection was against build 202607211448; iOS 2.3.5 is now WAITING_FOR_REVIEW). Was: **v1.0 REJECTED, Guideline 2.1(a) Performance/App Completeness.** Reviewed 2026-08-05 on iPhone 17 Pro Max, iOS 26.5.1, build `202607211448` (uploaded 07-21). Submission `2636ad65-3154-47ba-9d91-d333e8adbffe`. Apple's report is one line: **"Unable to log in."** No steps, no screenshots attached.
