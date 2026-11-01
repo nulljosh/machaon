@@ -549,4 +549,3 @@ Sidebar routing on macOS was broken (navigationDestination in the sidebar column
 - [ ] Find better name, doctor related
 - [ ] Add my CT scan to my account
 - [ ] Fix font, should be more San Francisco
-- [ ] Hero still enormous, still not fixed
