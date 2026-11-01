@@ -11,7 +11,7 @@ Machaon everywhere: app, store listing (iOS 2.4.0 in review), web, machaon.jaybu
 - [x] GitHub provider enabled in Supabase (spark project) via management API
 
 ## Rules
-- Machaon Sans (`scripts/gen_font.py`, Inter renamed), clrs.cc blue `#0074D9`, flat, no shadows or gradients. Brand kit: `brand/BRAND.md`
+- System font (SF Pro, Helvetica elsewhere), no custom face, clrs.cc blue `#0074D9`, flat, no shadows or gradients. Brand kit: `brand/BRAND.md`
 - Mobile-first, bottom nav, safe-area-inset support
 - Supabase auth: login, register, password reset (PASSWORD_RECOVERY event flow)
 - Interaction checker must warn when logging substance that interacts with active stack

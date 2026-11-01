@@ -43,7 +43,7 @@ sensitive enough that the fewer systems that touch it, the better.
 
 ## Design
 
-Machaon Sans (Inter, renamed by `scripts/gen_font.py`) on a flat page with one
+The system font (SF Pro, Helvetica elsewhere) on a flat page with one
 accent, clrs.cc blue `#0074D9`. No shadows, gradients or emojis in the app. Mobile-first with bottom nav and safe-area-inset
 support. OS-aware theme (auto dark/light + manual override).
 

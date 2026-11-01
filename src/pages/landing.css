@@ -6,8 +6,8 @@
   --band-sub: #d9ecfb; --band-art: #8cc6f5; --band-line: rgba(255, 255, 255, .22);
   --ring: color-mix(in srgb, var(--accent) 30%, transparent);
   --bg: #fdfdfd; --surface: #f2f4f7; --line: #dcdfe5; --text: #1a1a1a; --sub: #5a5f6b;
-  --display: "Machaon Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font: "Machaon Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size-body: 17px; --size-footnote: 13px;
   --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
   --wrap: 1120px; --r-row: 8px; --r-pill: 999px; --r-sq: 2px; --r-icon: 22.5%; --motion: .2s ease;
@@ -68,14 +68,14 @@
 /* the thin blue frame down both edges of the window */
 @media (min-width: 900px) {
   .hl::after { content: ""; position: fixed; inset: 0; border-inline: 4px solid var(--frame); pointer-events: none; z-index: 30; } }
-.hl .hero { padding: var(--sp-9) 0 var(--sp-8); }
+.hl .hero { padding: var(--sp-8) 0 var(--sp-7); }
 .hl .lead { max-width: 560px; margin: var(--sp-6) auto 0; color: var(--sub); }
 .hl .cta { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); }
 .hl .center .cta { justify-content: center; }
 .hl .fine { margin-top: var(--sp-3); font-size: var(--size-footnote); line-height: 16px; color: var(--sub); }
 /* the live window: same layout as the Mac app */
-.hl .demo-wrap { margin: var(--sp-8) clamp(0px, 3vw, 44px) 0; }
-.hl .stage { position: relative; overflow: hidden; background: var(--grain), var(--band); padding: clamp(24px, 6vw, 96px) clamp(12px, 7vw, 128px); }
+.hl .demo-wrap { margin: var(--sp-7) clamp(0px, 3vw, 44px) 0; }
+.hl .stage { position: relative; overflow: hidden; background: var(--grain), var(--band); padding: clamp(16px, 4vw, 56px) clamp(12px, 5vw, 80px); }
 .hl .stage-art { position: absolute; inset: 0; }
 .hl .term-stage .stage-art { color: var(--band-art); opacity: .65; -webkit-mask-image: var(--scan); mask-image: var(--scan); background: none; }
 .hl .term-stage .stage-art::before { content: none; }
@@ -216,7 +216,7 @@
 .hl .nav .btn { white-space: nowrap; }
 /* the shared install section, squared to match the landing's panels */
 .hl #install-anywhere .xp-card { border-radius: 4px; }
-/* Machaon Sans is wider than a condensed face: the display sizes come down so the caps keep Hermes' proportions */
+/* SF is wider than a condensed face: the display sizes come down so the caps keep Hermes' proportions */
 .hl h1 { font-size: clamp(72px, 12vw, 176px); letter-spacing: 0; }
 .hl h2 { font-size: clamp(44px, 6vw, 88px); letter-spacing: .01em; }
 .hl .band-copy h2 { font-size: clamp(48px, 7.5vw, 120px); }
@@ -227,5 +227,5 @@
 /* on a phone the feature rows stack: give each screenshot a tall slot so it reads */
 @media (max-width: 900px) { .hl .frow .art { aspect-ratio: 4 / 5; } }
 /* the hero leads with the line, not the name: the nav and the tab already say Machaon */
-.hl .hero-h1 { font-size: clamp(44px, 6.4vw, 92px); line-height: 1.04; font-weight: 200; text-transform: none; letter-spacing: -.01em; max-width: 960px; margin: 0 auto; }
+.hl .hero-h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.04; font-weight: 200; text-transform: none; letter-spacing: -.01em; max-width: 960px; margin: 0 auto; }
 .hl .mascot { display: block; margin: 0 auto var(--sp-4); }

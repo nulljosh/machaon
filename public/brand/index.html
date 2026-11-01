@@ -8,17 +8,11 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://machaon.jaybulb.com/brand/">
 <style>
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Thin.woff2) format("woff2"); font-weight: 100; font-display: swap; }
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Light.woff2) format("woff2"); font-weight: 300; font-display: swap; }
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Regular.woff2) format("woff2"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Medium.woff2) format("woff2"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Semibold.woff2) format("woff2"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "Machaon Sans"; src: url(/fonts/MachaonSans-Bold.woff2) format("woff2"); font-weight: 700; font-display: swap; }
 /* Same tokens as the landing (src/pages/landing.css) and brand/tokens.css. */
 :root {
   --accent: #0074D9; --accent-light: #3d9bf0; --band: #0074D9; --band-sub: #d9ecfb; --band-art: #8cc6f5; --frame: #0074D9;
   --bg: #fdfdfd; --surface: #f2f4f7; --line: #dcdfe5; --text: #1a1a1a; --sub: #5a5f6b; --ring: color-mix(in srgb, #0074D9 30%, transparent);
-  --font: "Machaon Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
 }
 @media (prefers-color-scheme: dark) { :root { --accent: #4da3ec; --band: #005fb3; --bg: #0a0e19; --surface: #141a2a; --line: #252d44; --text: #f2f2f5; --sub: #a2a9bc; } }
@@ -101,13 +95,13 @@ footer { padding: var(--sp-7) 0; color: var(--sub); font-size: 13px; text-align:
   </div></section>
 
   <section><div class="wrap">
-    <p class="label">Type</p><h2>Machaon Sans</h2>
+    <p class="label">Type</p><h2>SF Pro (system)</h2>
     <div class="specimen">
       <p style="font-weight:100">Thin 100 · headlines in caps</p>
       <p style="font-weight:300">Light 300 · feature heads</p>
       <p style="font-weight:400">Regular 400 · body text</p>
       <p style="font-weight:600">Semibold 600 · buttons</p>
-      <small>Inter by Rasmus Andersson, renamed by scripts/gen_font.py, under the SIL Open Font License. Drawn in the spirit of San Francisco and Helvetica.</small>
+      <small>The system font: SF Pro on Apple devices, Helvetica elsewhere. Nothing to download.</small>
     </div>
   </div></section>
 
@@ -142,7 +136,6 @@ footer { padding: var(--sp-7) 0; color: var(--sub); font-size: 13px; text-align:
       <a href="/brand/mascot.svg" download>mascot.svg <span>Aski, 240 grid</span></a>
       <a href="/brand/tokens.css" download>tokens.css <span>colour, space and shape</span></a>
       <a href="/og.png" download>og.png <span>link preview, 1200 by 630</span></a>
-      <a href="/fonts/OFL.txt">Machaon Sans licence <span>SIL Open Font License</span></a>
     </div>
   </div></section>
 </main>
