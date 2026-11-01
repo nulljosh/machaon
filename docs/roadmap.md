@@ -190,7 +190,7 @@ reported as type `inAppPurchaseVersion`, yet `asc iap list --app 6785764864` ret
 IAPs. See sparkjar/roadmap.md "ASC state verified 2026-08-10" for the full decoding, don't
 chase a nonexistent IAP.
 
-- [ ] **Read the rejection text in Resolution Center.** Not exposed by the public API.
+- [x] (11-01: nothing open, iOS 2.4.0 and Mac 2.3.5 are both on sale) **Read the rejection text in Resolution Center.** Not exposed by the public API.
   Needs `asc web review show --app 6785764864`, which needs a web session, `asc web auth
   status` is `authenticated:false` and `asc-login` requires an interactive 2FA code from
   Joshua. The real reason is unknown until then. Plausibly this is the medical-device
@@ -208,7 +208,7 @@ v1.0 is WAITING_FOR_REVIEW (submitted 2026-07-21). Infrastructure migrated from 
   this can't be automated.
 
 ## From App Store.pdf (imported 2026-07-28)
-- [ ] Ship a macOS version of Intake. Note 2026-08-10: `healstack/macos/` **does exist**, so
+- [x] (11-01: shipped, Mac 2.3.5 is on sale) Ship a macOS version of Intake. Note 2026-08-10: `healstack/macos/` **does exist**, so
   this is a build+submit job rather than a from-scratch port. There is currently no `MAC_OS`
   version row on app `6785764864` (only IOS), the row gets created by submitting a macOS
   build, not by a dashboard toggle.
