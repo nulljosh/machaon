@@ -1,4 +1,4 @@
-# Intake Roadmap
+# Machaon Roadmap
 
 > Priority tier 2 (2026-10-17): ship push, this week. Order: live blockers, ship pushes, active features, portfolio, exploratory. See ~/Documents/Code/LOOP-HANDOFF.md.
 
