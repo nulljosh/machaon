@@ -47,9 +47,9 @@
 .hl h1, .hl h2, .hl h3 { text-wrap: balance; }
 /* the wing, in the accent, over a section title */
 .hl .wing { display: block; width: 56px; height: 56px; margin: 0 auto var(--sp-4); background: var(--accent); -webkit-mask: url(/brand-mark.svg) center / contain no-repeat; mask: url(/brand-mark.svg) center / contain no-repeat; }
-.hl h1 { font-size: clamp(112px, 17vw, 248px); line-height: .9; font-weight: 100; text-transform: uppercase; letter-spacing: -.005em; }
-.hl h2 { font-size: clamp(52px, 7.4vw, 112px); line-height: .9; font-weight: 100; text-transform: uppercase; }
-.hl h3 { font-size: 30px; line-height: 32px; font-weight: 300; }
+.hl h1 { font-size: clamp(112px, 17vw, 248px); line-height: .9; font-weight: 700; letter-spacing: -.045em; }
+.hl h2 { font-size: clamp(48px, 7vw, 104px); line-height: .92; font-weight: 700; letter-spacing: -.035em; }
+.hl h3 { font-size: 28px; line-height: 32px; font-weight: 600; letter-spacing: -.01em; }
 .hl .label { font-size: 14px; line-height: 16px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); margin-bottom: var(--sp-4); }
 .hl .btn { height: 40px; padding: 0 var(--sp-4); border-radius: var(--r-sq); display: inline-flex; align-items: center; font-family: var(--display); font-weight: 500; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border: 1px solid transparent; transition: background var(--motion), color var(--motion), border-color var(--motion); }
 .hl .btn-solid { background: var(--btn); color: #fff; }
@@ -125,7 +125,7 @@
 .hl .frow .art { aspect-ratio: 3 / 2; background: var(--grain), color-mix(in srgb, #fff 6%, var(--band)); }
 .hl .frow:nth-child(even) .art { order: 2; }
 .hl .frow > div:not(.art) { padding: var(--sp-7) clamp(24px, 6vw, 96px); max-width: 560px; }
-.hl .frow h3 { font-size: clamp(36px, 3.6vw, 52px); line-height: 1; font-weight: 200; }
+.hl .frow h3 { font-size: clamp(36px, 3.6vw, 52px); line-height: 1; font-weight: 700; letter-spacing: -.03em; }
 .hl .frow p:last-child { margin-top: var(--sp-4); color: var(--band-sub); }
 .hl .cells { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--band-line); }
 .hl .cell { padding: var(--sp-6) var(--sp-6) var(--sp-7); border-right: 1px solid var(--band-line); border-bottom: 1px solid var(--band-line); }
@@ -153,14 +153,14 @@
 .hl .plat-row { display: flex; justify-content: center; margin-top: var(--sp-7); }
 .hl .plat-row > div { max-width: 440px; padding: var(--sp-6); border-radius: 4px; border: 1px solid var(--line); display: grid; gap: var(--sp-2); justify-items: center; }
 .hl .plat-row small { font-family: var(--display); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--sub); }
-.hl .plat-row b { font-family: var(--display); font-weight: 300; font-size: 40px; line-height: 44px; text-transform: uppercase; }
+.hl .plat-row b { font-family: var(--display); font-weight: 700; font-size: 40px; line-height: 44px; text-transform: uppercase; }
 .hl .plat-row p { color: var(--sub); font-size: 15px; line-height: 22px; margin-bottom: var(--sp-3); }
 /* Footer: brand and link columns, the engraved band of Hermes' things, one fine line */
 .hl .foot { text-align: center; padding: var(--sp-8) var(--sp-4) var(--sp-5); background: var(--bg); overflow: hidden; border-top: 1px solid var(--line); }
 .hl .foot-top { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--sp-4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-7); text-align: left; }
 .hl .foot-brand { display: grid; gap: var(--sp-2); align-content: start; }
 .hl .foot-brand img { border-radius: var(--r-icon); }
-.hl .foot-brand b { font-family: var(--display); font-weight: 300; font-size: 40px; line-height: 40px; text-transform: uppercase; }
+.hl .foot-brand b { font-family: var(--display); font-weight: 700; font-size: 36px; line-height: 40px; letter-spacing: -.03em; }
 .hl .foot-brand p { color: var(--sub); font-size: 15px; }
 .hl .foot-cols { display: flex; flex-wrap: wrap; gap: var(--sp-8); }
 .hl .foot-cols div { display: grid; gap: var(--sp-2); align-content: start; }
@@ -222,10 +222,12 @@
 .hl .band-copy h2 { font-size: clamp(48px, 7.5vw, 120px); }
 /* the painting fades into the band, so the white headline over it always has the blue behind it */
 .hl .band-art::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(transparent, var(--band) 85%); }
-.hl .band-copy h2 { font-weight: 200; }
-.hl #install-anywhere h2 { font-weight: 200; letter-spacing: .01em; }
+.hl .band-copy h2 { font-weight: 700; }
+.hl #install-anywhere h2 { font-weight: 700; }
 /* on a phone the feature rows stack: give each screenshot a tall slot so it reads */
 @media (max-width: 900px) { .hl .frow .art { aspect-ratio: 4 / 5; } }
 /* the hero leads with the line, not the name: the nav and the tab already say Machaon */
-.hl .hero-h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.04; font-weight: 200; text-transform: none; letter-spacing: -.01em; max-width: 960px; margin: 0 auto; }
+.hl .hero-h1 { max-width: 960px; margin: 0 auto; }
 .hl .mascot { display: block; margin: 0 auto var(--sp-4); }
+
+@media (max-width: 600px) { .hl .nav { grid-template-columns: auto 1fr; } .hl .nav-brand { grid-column: 1; } .hl .nav-end { grid-column: 2; justify-self: end; } }

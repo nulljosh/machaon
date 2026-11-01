@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
 import InstallAnywhere from '../components/InstallAnywhere';
 import FooterBand from '../components/FooterBand';
+import { SUBSTANCES } from '../data/substances';
+import { findInteractions, severityLabel } from '../components/InteractionChecker';
 import './landing.css';
+import './hero.css';
 
 const APP_STORE = 'https://apps.apple.com/app/id6785764864';
 
@@ -33,13 +36,79 @@ function useReveal(rootRef) {
   }, [rootRef]);
 }
 
+// Hero wall: the real interaction checker, run on a loop. Each card picks two substances, checks them with the
+// same findInteractions the app uses, shows the verdict, logs the dose, then moves on. Decoration only.
+const PAIRS = [['Sertraline', 'Alcohol'], ['Caffeine', 'L-Theanine'], ['Ibuprofen', 'Aspirin'], ['Melatonin', 'Alcohol'],
+  ['Vitamin D3', 'Magnesium'], ['Diphenhydramine', 'Alcohol'], ['Zinc', 'Vitamin C'], ['Acetaminophen', 'Alcohol'],
+  ['Omega-3 (EPA/DHA)', 'Aspirin'], ['Metformin', 'Alcohol'], ['CBD', 'Sertraline'], ['Vitamin B12', 'Omeprazole']];
+function useHeroWall(wallRef) {
+  useEffect(() => {
+    const wall = wallRef.current;
+    if (!wall) return;
+    const by = n => SUBSTANCES.find(s => s.name === n);
+    const pairs = PAIRS.map(([a, b]) => [by(a), by(b)]).filter(([a, b]) => a && b);
+    const mq = q => matchMedia(q).matches;
+    const n = mq('(max-width: 560px)') ? 3 : mq('(max-width: 900px)') ? 6 : 9;
+    const still = mq('(prefers-reduced-motion: reduce)');
+    const timers = [];
+    const later = (f, ms) => timers.push(setTimeout(f, ms));
+    wall.textContent = '';
+    for (let i = 0; i < n; i++) {
+      const el = document.createElement('div');
+      el.className = 'mc';
+      el.innerHTML = '<p class="mc-k">Interaction check</p><div class="mc-pair"><span></span><b>+</b><span></span></div><div class="mc-res"><i></i><p></p></div>';
+      wall.appendChild(el);
+      const [a, b] = el.querySelectorAll('.mc-pair span'), res = el.querySelector('.mc-res'), dot = res.querySelector('i'), txt = res.querySelector('p');
+      let k = i;
+      const play = () => {
+        const [A, B] = pairs[k % pairs.length]; k += n;
+        const hit = findInteractions(A, B)[0];
+        a.textContent = A.name; b.textContent = ''; res.className = 'mc-res'; txt.textContent = 'Checking\u2026';
+        const verdict = () => {
+          res.className = 'mc-res on ' + (hit ? hit.severity : 'none');
+          txt.textContent = hit ? `${severityLabel(hit.severity)}: ${hit.text}` : 'No known interactions';
+        };
+        if (still) { b.textContent = B.name; verdict(); return; }
+        later(() => { b.textContent = B.name; }, 900 + Math.random() * 600);
+        later(verdict, 2200 + Math.random() * 700);
+        later(play, 6200 + Math.random() * 1800);
+      };
+      later(play, i * 500);
+    }
+    return () => timers.forEach(clearTimeout);
+  }, [wallRef]);
+}
+
+// Hero parallax: the wall drifts at 0.45, the copy lifts at 0.2 and fades. Off under reduced motion.
+function useParallax(heroRef) {
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const bg = hero.querySelector('.hero-bg'), copy = hero.querySelector('.hero-copy');
+    let t = 0, y = 0;
+    const on = e => {
+      y = e.target === document || !e.target.scrollTop ? window.scrollY : e.target.scrollTop;
+      if (t) return;
+      t = requestAnimationFrame(() => {
+        t = 0; const h = innerHeight; if (y > h * 1.2) return;
+        bg.style.setProperty('--py', `${y * 0.45}px`);
+        copy.style.transform = `translate3d(0, ${y * 0.2}px, 0)`; copy.style.opacity = String(Math.max(0, 1 - y / (h * 0.7)));
+      });
+    };
+    document.addEventListener('scroll', on, { passive: true, capture: true });
+    return () => { document.removeEventListener('scroll', on, { capture: true }); cancelAnimationFrame(t); };
+  }, [heroRef]);
+}
+
 // Art, dithered to halftone: Sebastiano Ricci, The Dream of Aesculapius (public domain); a Rijksmuseum engraving of
 // Aesculapius reviving Hippolytus (CC0); the Sosias cup, Achilles bandaging Patroclus at Troy, the war Machaon served
 // as healer (CC0); Hygieia of Rhodes, Machaon's sister (CC0); a Rijksmuseum bust of Asklepios, his father (CC0).
 // All via Wikimedia Commons. Every image is used once.
 export default function Landing({ onGetStarted, toggle }) {
-  const root = useRef(null);
+  const root = useRef(null), hero = useRef(null), wall = useRef(null);
   useReveal(root);
+  useHeroWall(wall);
+  useParallax(hero);
 
   return (
     <div className="hl" ref={root}>
@@ -56,8 +125,9 @@ export default function Landing({ onGetStarted, toggle }) {
       </header>
 
       <main id="top">
-        <section className="hero">
-          <div className="wrap center">
+        <section className="hero" ref={hero}>
+          <div className="hero-bg" aria-hidden="true" inert><div className="mwall" ref={wall} /></div>
+          <div className="wrap center hero-copy">
             <p className="label">Supplements, medications and symptoms</p>
             <h1 className="hero-h1">Know what you take.</h1>
             <p className="lead">A private dose log that checks every interaction first.</p>
@@ -66,17 +136,6 @@ export default function Landing({ onGetStarted, toggle }) {
               <a className="btn btn-ghost" href="#features">See what it does</a>
             </div>
             <p className="fine">Free on the web. iPhone and iPad on the App Store.</p>
-          </div>
-
-          <div className="demo-wrap reveal">
-            <div className="stage">
-              <div className="art stage-art" style={{ '--img': 'url(/art/hippolytus.png)' }} aria-hidden="true" />
-              <div className="shots">
-                <img src="/screenshots/ios-home.png" alt="Machaon home screen" />
-                <img src="/screenshots/ios-insights.png" alt="Machaon insights screen" />
-              </div>
-            </div>
-            <p className="demo-hint">Real screens from the app.</p>
           </div>
         </section>
 
