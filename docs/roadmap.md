@@ -548,4 +548,3 @@ Sidebar routing on macOS was broken (navigationDestination in the sidebar column
 ## Ingested 2026-10-30
 - [ ] Find better name, doctor related
 - [ ] Add my CT scan to my account
-- [ ] Fix font, should be more San Francisco
