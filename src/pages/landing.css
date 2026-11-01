@@ -167,7 +167,7 @@
 .hl .foot-cols .label { margin-bottom: var(--sp-2); }
 .hl .foot-cols a { color: var(--text); text-decoration: none; font-size: 15px; }
 .hl .foot-cols a:hover { color: var(--accent); }
-.hl .word-band { color: var(--accent); position: relative; width: 100vw; margin: var(--sp-6) 0 0 calc(50% - 50vw); height: clamp(160px, 24vw, 340px); }
+.hl .word-band { color: var(--accent); position: relative; width: 100vw; margin: var(--sp-6) 0 0 calc(50% - 50vw); height: clamp(120px, 16vw, 220px); }
 .hl .word-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
 .hl .word-band.live .word-canvas { display: block; }
 .hl .legal { margin-top: var(--sp-2); font-size: var(--size-footnote); line-height: 16px; color: var(--sub); text-wrap: balance; }
@@ -199,7 +199,7 @@
 .hl .cell:last-child { border-bottom: 0; }
 .hl .tabs { margin-left: 0; }
 .hl .bar.detail { flex-wrap: wrap; }
-.hl .word-band { height: 260px; }
+.hl .word-band { height: 140px; }
 .hl .foot-cols { gap: var(--sp-6); }
 }
 @media (prefers-reduced-motion: reduce) {
