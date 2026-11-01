@@ -369,11 +369,6 @@ Built `scripts/check-signin-config.sh` to guard the seven static things that act
 
 ## Ingested 2026-08-24
 
-- [ ] **Breath, a breathing exercise feature.** From Notes ("work on breath app"); confirmed
-      2026-08-24 that this belongs inside Intake rather than being its own app. Scope is
-      undefined beyond the name, needs a decision on what it actually does (timed box-breathing
-      / 4-7-8 patterns? logged as a health entry alongside the existing markers? a Live Activity
-      or just an in-app timer?) before any build.
 
 ## Rejected 2.5.1, HealthKit not identified in the UI, fixed 2026-08-27
 
