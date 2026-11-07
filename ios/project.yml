@@ -10,7 +10,7 @@ options:
     macOS: '14.0'
 settings:
   SWIFT_VERSION: '6.0'
-  MARKETING_VERSION: '2.4.0'
+  MARKETING_VERSION: '2.4.1'
   CURRENT_PROJECT_VERSION: '202610211503'
   DEVELOPMENT_TEAM: QMM486NPYC
   CODE_SIGN_STYLE: Automatic
@@ -23,30 +23,18 @@ targets:
       - path: Healstack.icon
         type: file
         buildPhase: resources
-      - path: .
-        excludes:
-          - '*.md'
-          - 'ExportOptions*.plist'
-          - 'icon.svg'
-          - 'Healstack.icon'
-          - 'fastlane'
-          - '*.xcodeproj'
-          - '*.yml'
-          - .git
-          - .gitignore
-          - README.md
-          - CLAUDE.md
-          - architecture.svg
-          - '*.entitlements'
-          - Tests
-          - UITests
-          - Checks
-          - DoseWidget
-          - watchos
-          - macOS
-          - scripts
-          - .asc
-          - fastlane
+      # Listed one by one: a `path: .` source made xcodegen put Data, Models, Services and Views in two groups,
+      # which Xcode 27 refuses to open.
+      - Data
+      - Models
+      - Services
+      - Views
+      - Assets.xcassets
+      - CrossPlatform.swift
+      - HealstackApp.swift
+      - OnboardingSlides.swift
+      - OnboardingView.swift
+      - WhatsNewSheet.swift
     dependencies:
       - sdk: HealthKit.framework
       - target: DoseWidgetExtension
@@ -69,52 +57,6 @@ targets:
       PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.dose
       INFOPLIST_KEY_CFBundleDisplayName: Machaon
       CODE_SIGN_ENTITLEMENTS: Healstack.entitlements
-
-  Healstack-macOS:
-    type: application
-    platform: macOS
-    sources:
-      # Icon Composer document, Liquid Glass layers. AppIcon.appiconset stays as the flat fallback.
-      - path: Healstack.icon
-        type: file
-        buildPhase: resources
-      - path: .
-        excludes:
-          - '*.md'
-          - 'ExportOptions*.plist'
-          - 'icon.svg'
-          - 'Healstack.icon'
-          - 'fastlane'
-          - '*.xcodeproj'
-          - '*.yml'
-          - .git
-          - .gitignore
-          - README.md
-          - CLAUDE.md
-          - architecture.svg
-          - '*.entitlements'
-          - '*.plist'
-          - Tests
-          - UITests
-          - Checks
-          - DoseWidget
-          - watchos
-          - macOS
-          - scripts
-          - .asc
-          - fastlane
-    buildToolPlugins:
-      - plugin: SwiftLintBuildToolPlugin
-        package: SwiftLint
-    settings:
-      INFOPLIST_FILE: macOS/Info.plist
-      GENERATE_INFOPLIST_FILE: NO
-      PRODUCT_BUNDLE_IDENTIFIER: com.heyitsmejosh.dose
-      PRODUCT_NAME: Healstack
-      MACOSX_DEPLOYMENT_TARGET: '14.0'
-      ENABLE_HARDENED_RUNTIME: YES
-      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-      CODE_SIGN_ENTITLEMENTS: macOS/Healstack-macOS.entitlements
 
   HealstackTests:
     type: bundle.unit-test
@@ -156,12 +98,6 @@ targets:
       - sdk: SwiftUI.framework
 
 schemes:
-  Healstack-macOS:
-    build:
-      targets:
-        Healstack-macOS: all
-    run:
-      config: Debug
   Healstack:
     build:
       targets:
