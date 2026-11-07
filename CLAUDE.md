@@ -73,3 +73,6 @@ keys (last wins in YAML). That is how litigate briefly lost `app-sandbox` and
 - [ ] [P1] Stale App Store description. It still says Healstack, not Machaon. (notes/attachments/2026-10-21/machaeon-2.png)
 - [ ] [P1] App Store screenshots show the "What's New in v2.3.2" modal. Retake without it. (notes/attachments/2026-10-21/machaeon-1.png)
 - [ ] [P2] Splash screen should show the new logo, animate as it loads, and show the onboarding process to new users.
+
+## Stashed 2026-11-07
+- [ ] Next App Store version: the Mac 2.3.5 and iPhone 2.4.0 support and marketing URLs still point at heyitsmejosh.com and healstack.heyitsmejosh.com (lapsed, dead; App Review can reject on it). Set both to https://machaon.jaybulb.com in the new version's localizations. Live versions cannot be edited.
