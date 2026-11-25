@@ -111,6 +111,8 @@ struct AddDoseSheet: View {
                                         .foregroundStyle(.yellow)
                                 }
                                 .buttonStyle(.plain)
+                                .accessibilityLabel("\(star) star\(star == 1 ? "" : "s")")
+                                .accessibilityAddTraits(star <= rating ? .isSelected : [])
                             }
                         }
                     }

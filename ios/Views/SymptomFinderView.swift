@@ -41,6 +41,7 @@ struct SymptomFinderView: View {
                         if !query.isEmpty {
                             Button { query = ""; selected = nil } label: {
                                 Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary)
+                                    .accessibilityLabel("Clear search")
                             }
                         }
                     }

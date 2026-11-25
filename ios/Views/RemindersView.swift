@@ -40,6 +40,7 @@ struct RemindersView: View {
                         showingAddSheet = true
                     } label: {
                         Image(systemName: "plus")
+                            .accessibilityLabel("Add reminder")
                     }
                 }
             }

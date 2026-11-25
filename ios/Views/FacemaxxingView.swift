@@ -91,6 +91,7 @@ struct FacemaxxingView: View {
                         .foregroundStyle(isChecked ? Color.accentColor : .secondary)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(isChecked ? "Done today, \(p.title)" : "Mark done today, \(p.title)")
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(p.title).font(.body)

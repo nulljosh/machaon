@@ -9,6 +9,13 @@ struct LabMarkerChartView: View {
     private var refHigh: Double? { history.first?.marker.refHigh }
     private var unit: String { history.first?.marker.unit ?? "" }
 
+    private var spokenSummary: String {
+        guard let last = history.last else { return "No results" }
+        var parts = ["\(history.count) results", "latest \(last.marker.value.formatted()) \(unit) on \(last.date.formatted(date: .abbreviated, time: .omitted))"]
+        if let lo = refLow, let hi = refHigh { parts.append("normal range \(lo.formatted()) to \(hi.formatted())") }
+        return parts.joined(separator: ", ")
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(markerName)
@@ -68,6 +75,9 @@ struct LabMarkerChartView: View {
                 AxisMarks { AxisValueLabel().font(.caption2) }
             }
             .frame(height: 200)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("\(markerName) history")
+            .accessibilityValue(spokenSummary)
         }
         .padding()
         .background(Color.secondaryBackground)

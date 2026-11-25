@@ -96,6 +96,7 @@ struct LibraryView: View {
                         InteractionCheckerView()
                     } label: {
                         Image(systemName: "arrow.triangle.merge")
+                            .accessibilityLabel("Interaction checker")
                     }
                 }
             }

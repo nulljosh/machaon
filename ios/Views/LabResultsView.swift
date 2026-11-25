@@ -43,6 +43,7 @@ struct LabResultsView: View {
                         showAdd = true
                     } label: {
                         Image(systemName: "plus")
+                            .accessibilityLabel("Add lab result")
                     }
                 }
             }

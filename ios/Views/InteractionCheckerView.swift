@@ -28,6 +28,7 @@ struct InteractionCheckerView: View {
                             .font(.title3)
                             .foregroundStyle(.secondary)
                     }
+                    .accessibilityLabel("Swap substances")
                     .disabled(substanceA == nil && substanceB == nil)
 
                     substanceCard(label: "Substance B", substance: substanceB) {

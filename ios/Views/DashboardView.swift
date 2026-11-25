@@ -208,6 +208,7 @@ struct DashboardView: View {
                         showSettings = true
                     } label: {
                         Image(systemName: "gearshape")
+                            .accessibilityLabel("Settings")
                     }
                 }
                 ToolbarItem(placement: .primaryAction) {
@@ -215,6 +216,7 @@ struct DashboardView: View {
                         showReminders = true
                     } label: {
                         Image(systemName: "bell")
+                            .accessibilityLabel("Reminders")
                     }
                 }
             }
